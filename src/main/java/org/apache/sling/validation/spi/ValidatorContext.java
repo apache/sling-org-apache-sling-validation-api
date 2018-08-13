@@ -20,12 +20,11 @@ package org.apache.sling.validation.spi;
 
 import java.util.ResourceBundle;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.validation.ValidationService;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -39,17 +38,17 @@ public interface ValidatorContext {
     /**
      * @return the relative location of the property which should be checked by the validator. Refers to the 'data' parameter of {@link Validator#validate(Object, ValidatorContext, ValueMap)}
      */
-    @Nonnull String getLocation();
+    @NotNull String getLocation();
 
     /**
      * @return all properties of the validated resource/valuemap (only used for validations considering multiple properties), never {@code null}.
      */
-    @Nonnull ValueMap getValueMap();
+    @NotNull ValueMap getValueMap();
 
     /**
      * @return the resource on which the validation was triggered. {@code null} in case the validation was triggered on a {@link ValueMap} (via {@link ValidationService#validate(ValueMap, org.apache.sling.validation.model.ValidationModel)}).
      */
-    @CheckForNull Resource getResource();
+    @Nullable Resource getResource();
 
     /**
      * Returns the severity to be issued for validation failures in this context.
@@ -60,5 +59,5 @@ public interface ValidatorContext {
     /**
      * @return resource bundle which should be able to give out the error message of the {@link Validator} in English.
      */
-    @Nonnull ResourceBundle getDefaultResourceBundle();
+    @NotNull ResourceBundle getDefaultResourceBundle();
 }

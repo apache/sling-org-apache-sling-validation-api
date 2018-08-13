@@ -23,10 +23,9 @@ import java.text.MessageFormat;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import javax.annotation.Nonnull;
-
 import org.apache.sling.validation.ValidationFailure;
 import org.apache.sling.validation.spi.ValidatorContext;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -40,10 +39,10 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
      * 
      */
     private static final long serialVersionUID = -1748031688917555982L;
-    private final @Nonnull String location;
-    private final @Nonnull String messageKey;
+    private final @NotNull String location;
+    private final @NotNull String messageKey;
     private final Object[] messageArguments;
-    private final transient @Nonnull ResourceBundle defaultResourceBundle;
+    private final transient @NotNull ResourceBundle defaultResourceBundle;
     private final int severity;
 
     /**
@@ -52,7 +51,7 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
     * @param messageKey the key to look up in the resource bundle
     * @param messageArguments the arguments to be used with the looked up value from the resource bundle (given in {@link #getMessage(ResourceBundle)}
     */
-   public DefaultValidationFailure(@Nonnull ValidatorContext validationContext, @Nonnull String messageKey, Object... messageArguments) {
+   public DefaultValidationFailure(@NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
        this.location = validationContext.getLocation();
        this.severity = validationContext.getSeverity();
        this.defaultResourceBundle = validationContext.getDefaultResourceBundle();
@@ -69,7 +68,7 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
      * @param messageKey the key to look up in the resource bundle
      * @param messageArguments the arguments to be used with the looked up value from the resource bundle (given in {@link #getMessage(ResourceBundle)}
      */
-    public DefaultValidationFailure(@Nonnull String location, int severity, @Nonnull ResourceBundle defaultResourceBundle, @Nonnull String messageKey, Object... messageArguments) {
+    public DefaultValidationFailure(@NotNull String location, int severity, @NotNull ResourceBundle defaultResourceBundle, @NotNull String messageKey, Object... messageArguments) {
         this.location = location;
         this.severity = severity;
         this.messageKey = messageKey;
@@ -78,7 +77,7 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
     }
 
     @Override
-    public @Nonnull String getMessage(ResourceBundle resourceBundle) {
+    public @NotNull String getMessage(ResourceBundle resourceBundle) {
         if (resourceBundle == null) {
             resourceBundle = defaultResourceBundle;
         }
@@ -90,7 +89,7 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
     }
 
     @Override
-    public @Nonnull String getLocation() {
+    public @NotNull String getLocation() {
         return location;
     }
 

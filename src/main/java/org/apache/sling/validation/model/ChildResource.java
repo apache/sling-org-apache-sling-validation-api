@@ -21,9 +21,8 @@ package org.apache.sling.validation.model;
 import java.util.Collection;
 import java.util.regex.Pattern;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -40,14 +39,14 @@ public interface ChildResource {
      *
      * @return the name
      */
-     @Nonnull String getName();
+     @NotNull String getName();
     
     /**
      * Returns this resource's name pattern. In case this is not returning {@code null}, this pattern is used for finding the child resources which should be validated.
      *
      * @return the name pattern (if one is set) or {@code null}
      */
-    @CheckForNull Pattern getNamePattern();
+    @Nullable Pattern getNamePattern();
 
     /**
      * Returns {@code true} if at least one resource matching the name/namePattern is required.
@@ -61,11 +60,11 @@ public interface ChildResource {
      *
      * @return the properties list. Never {@code null}.
      */
-    @Nonnull Collection<ResourceProperty> getProperties();
+    @NotNull Collection<ResourceProperty> getProperties();
     
     /**
      * Returns the child resources of this part of the Validation Model
      * @return child resources. Never {@code null}.
      */
-    @Nonnull Collection<ChildResource> getChildren();
+    @NotNull Collection<ChildResource> getChildren();
 }

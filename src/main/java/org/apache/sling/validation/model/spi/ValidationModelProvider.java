@@ -20,10 +20,9 @@ package org.apache.sling.validation.model.spi;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
 import org.apache.sling.validation.ValidationService;
 import org.apache.sling.validation.model.ValidationModel;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -46,6 +45,6 @@ public interface ValidationModelProvider {
      * @throws IllegalStateException
      *             in case a validation model was found but it is invalid
      */
-    @Nonnull List<ValidationModel> getValidationModels(@Nonnull String relativeResourceType) throws IllegalStateException;
+    @NotNull List<ValidationModel> getValidationModels(@NotNull String relativeResourceType) throws IllegalStateException;
 
 }

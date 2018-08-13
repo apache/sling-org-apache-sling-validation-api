@@ -18,10 +18,9 @@
  */
 package org.apache.sling.validation.model.spi;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.validation.model.ValidationModel;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 /** Retrieves the validation model. */
@@ -35,5 +34,5 @@ public interface ValidationModelRetriever {
      * @return a validation model which should be used for validation or {@code null}, if no validation model could be found
      * @throws IllegalStateException in case some error occurred during looking up models
      */
-    public @CheckForNull ValidationModel getValidationModel(@Nonnull String resourceType, String resourcePath, boolean considerResourceSuperTypeModels);
+    public @Nullable ValidationModel getValidationModel(@NotNull String resourceType, String resourcePath, boolean considerResourceSuperTypeModels);
 }

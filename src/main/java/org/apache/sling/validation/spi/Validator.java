@@ -18,12 +18,11 @@
  */
 package org.apache.sling.validation.spi;
 
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.validation.SlingValidationException;
 import org.apache.sling.validation.ValidationFailure;
 import org.apache.sling.validation.ValidationResult;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ConsumerType;
 
 
@@ -73,7 +72,7 @@ public interface Validator <T> {
      * @return the validation result (encapsulates the validation status as well as messages).
      * @throws SlingValidationException if some expected arguments are missing from the arguments map
      */
-    @Nonnull ValidationResult validate(@Nonnull T data, @Nonnull ValidatorContext context, @Nonnull ValueMap arguments) throws SlingValidationException;
+    @NotNull ValidationResult validate(@NotNull T data, @NotNull ValidatorContext context, @NotNull ValueMap arguments) throws SlingValidationException;
     
     /**
      * Each {@link Validator} must have a service property with name {@code validator.id} of type {@link String}. The validators are only addressable via the value of this property 

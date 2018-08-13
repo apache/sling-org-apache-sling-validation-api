@@ -21,9 +21,8 @@ package org.apache.sling.validation.model;
 import java.util.List;
 import java.util.regex.Pattern;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -38,14 +37,14 @@ public interface ResourceProperty {
      *
      * @return the name
      */
-    @Nonnull String getName();
+    @NotNull String getName();
     
     /**
      * Returns the name pattern for this property. In case this is not returning {@code null}, this pattern is used for finding the properties which should be validated.
      *
      * @return the name pattern (if one is set) or {@code null}
      */
-    @CheckForNull Pattern getNamePattern();
+    @Nullable Pattern getNamePattern();
 
     /**
      *
@@ -65,5 +64,5 @@ public interface ResourceProperty {
      *
      * @return the {@link List} of {@link ValidatorInvocation}s
      */
-    @Nonnull List<ValidatorInvocation> getValidatorInvocations();
+    @NotNull List<ValidatorInvocation> getValidatorInvocations();
 }

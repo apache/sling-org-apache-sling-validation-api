@@ -25,11 +25,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import javax.annotation.Nonnull;
-
 import org.apache.sling.validation.ValidationFailure;
 import org.apache.sling.validation.ValidationResult;
 import org.apache.sling.validation.spi.ValidatorContext;
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 /**
@@ -44,7 +43,7 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
      */
     private static final long serialVersionUID = -3370520716090956033L;
     private final boolean isValid;
-    private final @Nonnull List<ValidationFailure> failures;
+    private final @NotNull List<ValidationFailure> failures;
 
     private DefaultValidationResult(boolean isValid) {
         this.isValid = isValid;
@@ -58,7 +57,7 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
      * @param messageKey the message key used for looking up a value in the resource bundle given in {@link ValidationFailure#getMessage(java.util.ResourceBundle)}
      * @param messageArguments optional number of arguments being used in {@link MessageFormat#format(String, Object...)}
      */
-    public DefaultValidationResult(@Nonnull ValidatorContext validationContext, @Nonnull String messageKey, Object... messageArguments) {
+    public DefaultValidationResult(@NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
         this.isValid = false;
         this.failures = Collections.<ValidationFailure>singletonList(new DefaultValidationFailure(validationContext, messageKey, messageArguments));
     }
@@ -72,7 +71,7 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
      * @param messageKey the message key used for looking up a value in the resource bundle given in {@link ValidationFailure#getMessage(java.util.ResourceBundle)}
      * @param messageArguments optional number of arguments being used in {@link MessageFormat#format(String, Object...)}
      */
-    public DefaultValidationResult(@Nonnull String location, int severity, @Nonnull ResourceBundle defaultResourceBundle, @Nonnull String messageKey, Object... messageArguments) {
+    public DefaultValidationResult(@NotNull String location, int severity, @NotNull ResourceBundle defaultResourceBundle, @NotNull String messageKey, Object... messageArguments) {
         this.isValid = false;
         this.failures = Collections.<ValidationFailure>singletonList(new DefaultValidationFailure(location, severity, defaultResourceBundle, messageKey, messageArguments));
     }
@@ -88,7 +87,7 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
     }
 
     @Override
-    @Nonnull
+    @NotNull
     public List<ValidationFailure> getFailures() {
         return failures;
     }
@@ -96,5 +95,5 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
     /**
      * Used to indicated a valid result.
      */
-    public static final @Nonnull DefaultValidationResult VALID = new DefaultValidationResult(true);
+    public static final @NotNull DefaultValidationResult VALID = new DefaultValidationResult(true);
 }

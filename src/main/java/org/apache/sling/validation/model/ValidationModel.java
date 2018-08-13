@@ -20,8 +20,7 @@ package org.apache.sling.validation.model;
 
 import java.util.Collection;
 
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -36,14 +35,14 @@ public interface ValidationModel {
      *
      * @return the properties list (never {@code null}, but might be empty list)
      */
-    @Nonnull Collection<ResourceProperty> getResourceProperties();
+    @NotNull Collection<ResourceProperty> getResourceProperties();
 
     /**
      * Returns the type of resource this model validates.
      *
      * @return the resource type to be validated, never {@code null}
      */
-    @Nonnull String getValidatingResourceType();
+    @NotNull String getValidatingResourceType();
 
     /**
      * Returns the paths under which resources will be validated by this model. 
@@ -52,19 +51,19 @@ public interface ValidationModel {
      *
      * @return a path array. Is never {@code null} nor an empty collection.
      */
-    @Nonnull Collection<String> getApplicablePaths();
+    @NotNull Collection<String> getApplicablePaths();
 
     /**
      * Returns the expected children for a resource validated by this model.
      *
      * @return the children list (can be empty if there are no children), never {@code null}
      */
-    @Nonnull Collection<ChildResource> getChildren();
+    @NotNull Collection<ChildResource> getChildren();
 
     /**
      * 
      * @return a string indicating the original source of this validation model, e.g. a resource path
      */
-    @Nonnull String getSource();
+    @NotNull String getSource();
 
 }

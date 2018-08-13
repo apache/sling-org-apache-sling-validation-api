@@ -20,8 +20,7 @@ package org.apache.sling.validation;
 
 import java.util.ResourceBundle;
 
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 @ProviderType
@@ -31,7 +30,7 @@ public interface ValidationFailure {
      * @param resourceBundle ResourceBundle in which to look up the according message (used for i18n), if {@code null} is given, the default resource bundle is used.
      * @return the failure message
      */
-    @Nonnull String getMessage(ResourceBundle resourceBundle);
+    @NotNull String getMessage(ResourceBundle resourceBundle);
 
     /**
      * Returns the relative location of the property/resource/value which triggered this validation failure.
@@ -42,7 +41,7 @@ public interface ValidationFailure {
      * </ul>
      * @return the location (usually the validated resource's property path).
      */
-    @Nonnull String getLocation();
+    @NotNull String getLocation();
 
     /**
      * @return the severity of this validation failure. If no explicit severity was set either in the validation model or in the validator, this returns {@code 0}.

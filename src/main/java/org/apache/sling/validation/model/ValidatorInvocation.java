@@ -18,11 +18,10 @@
  */
 package org.apache.sling.validation.model;
 
-import javax.annotation.CheckForNull;
-import javax.annotation.Nonnull;
-
 import org.apache.sling.api.resource.ValueMap;
 import org.apache.sling.validation.spi.Validator;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -36,18 +35,18 @@ public interface ValidatorInvocation {
      * 
      * @return the validator id of the {@link Validator} which is supposed to be called.
      */
-    @Nonnull String getValidatorId();
+    @NotNull String getValidatorId();
 
     /**
      * 
      * @return the parameterization of the {@link Validator#validate(Object, org.apache.sling.validation.spi.ValidatorContext, ValueMap)} call (never {@code null}, but might be empty map)
      */
-    @Nonnull ValueMap getParameters();
+    @NotNull ValueMap getParameters();
 
     /**
      * @return the severity of validation failures emitted for this usage of the validator (as being set in the model).
      * May be {@code null} in case it was not set on the model.
      */
-    @CheckForNull Integer getSeverity();
+    @Nullable Integer getSeverity();
 
 }

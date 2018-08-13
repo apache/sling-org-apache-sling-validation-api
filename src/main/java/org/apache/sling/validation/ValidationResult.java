@@ -20,8 +20,7 @@ package org.apache.sling.validation;
 
 import java.util.List;
 
-import javax.annotation.Nonnull;
-
+import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
 
@@ -43,5 +42,5 @@ public interface ValidationResult {
      *
      * @return the validation's failures (never {@code null})
      */
-    @Nonnull List<ValidationFailure> getFailures();
+    @NotNull List<ValidationFailure> getFailures();
 }
