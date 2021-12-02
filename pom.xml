@@ -21,20 +21,20 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.apache.sling</groupId>
-        <artifactId>sling</artifactId>
-        <version>30</version>
+        <artifactId>sling-bundle-parent</artifactId>
+        <version>46</version>
         <relativePath />
     </parent>
 
     <artifactId>org.apache.sling.validation.api</artifactId>
     <version>1.0.1-SNAPSHOT</version>
-    <packaging>bundle</packaging>
 
     <name>Apache Sling Validation Framework API</name>
     <description>The Apache Sling Validation Framework API</description>
 
     <properties>
         <sling.java.version>8</sling.java.version>
+        <project.build.outputTimestamp>2020-01-22T15:10:38Z</project.build.outputTimestamp>
     </properties>
 
     <scm>
@@ -43,17 +43,12 @@
         <url>https://gitbox.apache.org/repos/asf?p=sling-org-apache-sling-validation-api.git</url>
     </scm>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <extensions>true</extensions>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.annotation.versioning</artifactId>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>org.apache.sling</groupId>
             <artifactId>org.apache.sling.api</artifactId>
@@ -64,7 +59,6 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>16.0.2</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
