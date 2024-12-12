@@ -23,7 +23,6 @@ import java.util.List;
 import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
-
 /**
  * A {@code ValidationResult} contains validation information either from a single {@link org.apache.sling.validation.spi.Validator} or from multiple Validator invocations.
  */
@@ -42,5 +41,6 @@ public interface ValidationResult {
      *
      * @return the validation's failures (never {@code null})
      */
-    @NotNull List<ValidationFailure> getFailures();
+    @NotNull
+    List<ValidationFailure> getFailures();
 }

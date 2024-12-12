@@ -23,7 +23,6 @@ import java.util.Collection;
 import org.jetbrains.annotations.NotNull;
 import org.osgi.annotation.versioning.ProviderType;
 
-
 /**
  * A {@code ValidationModel} defines the validation rules that a resource tree has to pass.
  */
@@ -35,35 +34,39 @@ public interface ValidationModel {
      *
      * @return the properties list (never {@code null}, but might be empty list)
      */
-    @NotNull Collection<ResourceProperty> getResourceProperties();
+    @NotNull
+    Collection<ResourceProperty> getResourceProperties();
 
     /**
      * Returns the type of resource this model validates.
      *
      * @return the resource type to be validated, never {@code null}
      */
-    @NotNull String getValidatingResourceType();
+    @NotNull
+    String getValidatingResourceType();
 
     /**
-     * Returns the paths under which resources will be validated by this model. 
-     * Might return a single element array containing only the empty string, 
+     * Returns the paths under which resources will be validated by this model.
+     * Might return a single element array containing only the empty string,
      * in which case the validation model has no path restriction.
      *
      * @return a path array. Is never {@code null} nor an empty collection.
      */
-    @NotNull Collection<String> getApplicablePaths();
+    @NotNull
+    Collection<String> getApplicablePaths();
 
     /**
      * Returns the expected children for a resource validated by this model.
      *
      * @return the children list (can be empty if there are no children), never {@code null}
      */
-    @NotNull Collection<ChildResource> getChildren();
+    @NotNull
+    Collection<ChildResource> getChildren();
 
     /**
-     * 
+     *
      * @return a string indicating the original source of this validation model, e.g. a resource path
      */
-    @NotNull String getSource();
-
+    @NotNull
+    String getSource();
 }

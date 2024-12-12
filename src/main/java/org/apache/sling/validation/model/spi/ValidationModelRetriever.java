@@ -7,7 +7,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -34,5 +34,6 @@ public interface ValidationModelRetriever {
      * @return a validation model which should be used for validation or {@code null}, if no validation model could be found
      * @throws IllegalStateException in case some error occurred during looking up models
      */
-    public @Nullable ValidationModel getValidationModel(@NotNull String resourceType, String resourcePath, boolean considerResourceSuperTypeModels);
+    public @Nullable ValidationModel getValidationModel(
+            @NotNull String resourceType, String resourcePath, boolean considerResourceSuperTypeModels);
 }

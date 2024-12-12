@@ -7,7 +7,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -37,14 +37,16 @@ public interface ResourceProperty {
      *
      * @return the name
      */
-    @NotNull String getName();
-    
+    @NotNull
+    String getName();
+
     /**
      * Returns the name pattern for this property. In case this is not returning {@code null}, this pattern is used for finding the properties which should be validated.
      *
      * @return the name pattern (if one is set) or {@code null}
      */
-    @Nullable Pattern getNamePattern();
+    @Nullable
+    Pattern getNamePattern();
 
     /**
      *
@@ -54,7 +56,7 @@ public interface ResourceProperty {
 
     /**
      * Returns {@code true} if at least one property matching the name/namePattern is required.
-     * 
+     *
      * @return {@code true} if the property is required, {@code false} otherwise
      */
     boolean isRequired();
@@ -64,5 +66,6 @@ public interface ResourceProperty {
      *
      * @return the {@link List} of {@link ValidatorInvocation}s
      */
-    @NotNull List<ValidatorInvocation> getValidatorInvocations();
+    @NotNull
+    List<ValidatorInvocation> getValidatorInvocations();
 }

@@ -39,9 +39,10 @@ import org.osgi.annotation.versioning.ProviderType;
 public final class DefaultValidationResult implements ValidationResult, Serializable {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -3370520716090956033L;
+
     private final boolean isValid;
     private final @NotNull List<ValidationFailure> failures;
 
@@ -50,19 +51,21 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
         this.failures = Collections.emptyList();
     }
 
-    /** 
+    /**
      * Constructs a result with one failure message. The message is constructed by looking up the given messageKey from a resourceBundle.
      * and formatting it using the given messageArguments via {@link MessageFormat#format(String, Object...)}.
      * @param validationContext the context from which to take the location, severity and default resource bundle
      * @param messageKey the message key used for looking up a value in the resource bundle given in {@link ValidationFailure#getMessage(java.util.ResourceBundle)}
      * @param messageArguments optional number of arguments being used in {@link MessageFormat#format(String, Object...)}
      */
-    public DefaultValidationResult(@NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
+    public DefaultValidationResult(
+            @NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
         this.isValid = false;
-        this.failures = Collections.<ValidationFailure>singletonList(new DefaultValidationFailure(validationContext, messageKey, messageArguments));
+        this.failures = Collections.<ValidationFailure>singletonList(
+                new DefaultValidationFailure(validationContext, messageKey, messageArguments));
     }
 
-    /** 
+    /**
      * Constructs a result with one failure message. The message is constructed by looking up the given messageKey from a resourceBundle.
      * and formatting it using the given messageArguments via {@link MessageFormat#format(String, Object...)}.
      * @param location the location
@@ -71,9 +74,15 @@ public final class DefaultValidationResult implements ValidationResult, Serializ
      * @param messageKey the message key used for looking up a value in the resource bundle given in {@link ValidationFailure#getMessage(java.util.ResourceBundle)}
      * @param messageArguments optional number of arguments being used in {@link MessageFormat#format(String, Object...)}
      */
-    public DefaultValidationResult(@NotNull String location, int severity, @NotNull ResourceBundle defaultResourceBundle, @NotNull String messageKey, Object... messageArguments) {
+    public DefaultValidationResult(
+            @NotNull String location,
+            int severity,
+            @NotNull ResourceBundle defaultResourceBundle,
+            @NotNull String messageKey,
+            Object... messageArguments) {
         this.isValid = false;
-        this.failures = Collections.<ValidationFailure>singletonList(new DefaultValidationFailure(location, severity, defaultResourceBundle, messageKey, messageArguments));
+        this.failures = Collections.<ValidationFailure>singletonList(
+                new DefaultValidationFailure(location, severity, defaultResourceBundle, messageKey, messageArguments));
     }
 
     public DefaultValidationResult(ValidationFailure... failures) {
