@@ -30,22 +30,23 @@ public interface ValidationFailure {
      * @param resourceBundle ResourceBundle in which to look up the according message (used for i18n), if {@code null} is given, the default resource bundle is used.
      * @return the failure message
      */
-    @NotNull String getMessage(ResourceBundle resourceBundle);
+    @NotNull
+    String getMessage(ResourceBundle resourceBundle);
 
     /**
      * Returns the relative location of the property/resource/value which triggered this validation failure.
-     * The location 
+     * The location
      * <ul>
      * <li>is relative to the resource given in the first parameter in case it was returned by {@link ValidationService#validate(org.apache.sling.api.resource.Resource, org.apache.sling.validation.model.ValidationModel)} or {@link ValidationService#validateResourceRecursively(org.apache.sling.api.resource.Resource, boolean, java.util.function.Predicate, boolean)} or</li>
      * <li>contains just the value name in case it was returned by {@link ValidationService#validate(org.apache.sling.api.resource.ValueMap, org.apache.sling.validation.model.ValidationModel)}</li>
      * </ul>
      * @return the location (usually the validated resource's property path).
      */
-    @NotNull String getLocation();
+    @NotNull
+    String getLocation();
 
     /**
      * @return the severity of this validation failure. If no explicit severity was set either in the validation model or in the validator, this returns {@code 0}.
      */
     int getSeverity();
-
 }

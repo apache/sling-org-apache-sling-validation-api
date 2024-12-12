@@ -36,9 +36,10 @@ import org.osgi.annotation.versioning.ProviderType;
 public final class DefaultValidationFailure implements ValidationFailure, Serializable {
 
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -1748031688917555982L;
+
     private final @NotNull String location;
     private final @NotNull String messageKey;
     private final Object[] messageArguments;
@@ -46,18 +47,19 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
     private final int severity;
 
     /**
-    * Constructor of a validation failure.
-    * @param validationContext the context from which to extract location, severity and default resource bundle
-    * @param messageKey the key to look up in the resource bundle
-    * @param messageArguments the arguments to be used with the looked up value from the resource bundle (given in {@link #getMessage(ResourceBundle)}
-    */
-   public DefaultValidationFailure(@NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
-       this.location = validationContext.getLocation();
-       this.severity = validationContext.getSeverity();
-       this.defaultResourceBundle = validationContext.getDefaultResourceBundle();
-       this.messageKey = messageKey;
-       this.messageArguments = messageArguments;
-   }
+     * Constructor of a validation failure.
+     * @param validationContext the context from which to extract location, severity and default resource bundle
+     * @param messageKey the key to look up in the resource bundle
+     * @param messageArguments the arguments to be used with the looked up value from the resource bundle (given in {@link #getMessage(ResourceBundle)}
+     */
+    public DefaultValidationFailure(
+            @NotNull ValidatorContext validationContext, @NotNull String messageKey, Object... messageArguments) {
+        this.location = validationContext.getLocation();
+        this.severity = validationContext.getSeverity();
+        this.defaultResourceBundle = validationContext.getDefaultResourceBundle();
+        this.messageKey = messageKey;
+        this.messageArguments = messageArguments;
+    }
 
     /**
      * Constructor of a validation failure.
@@ -68,7 +70,12 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
      * @param messageKey the key to look up in the resource bundle
      * @param messageArguments the arguments to be used with the looked up value from the resource bundle (given in {@link #getMessage(ResourceBundle)}
      */
-    public DefaultValidationFailure(@NotNull String location, int severity, @NotNull ResourceBundle defaultResourceBundle, @NotNull String messageKey, Object... messageArguments) {
+    public DefaultValidationFailure(
+            @NotNull String location,
+            int severity,
+            @NotNull ResourceBundle defaultResourceBundle,
+            @NotNull String messageKey,
+            Object... messageArguments) {
         this.location = location;
         this.severity = severity;
         this.messageKey = messageKey;
@@ -82,8 +89,10 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
             resourceBundle = defaultResourceBundle;
         }
         if (resourceBundle == null) {
-            // this should only happen if this class was deserialized because there the default resource bundle is missing
-            return "No defaultResourceBundle found to resolve, messageKey = " + messageKey + ", messageArguments: " + Arrays.toString(messageArguments);
+            // this should only happen if this class was deserialized because there the default resource bundle is
+            // missing
+            return "No defaultResourceBundle found to resolve, messageKey = " + messageKey + ", messageArguments: "
+                    + Arrays.toString(messageArguments);
         }
         return MessageFormat.format(resourceBundle.getString(messageKey), messageArguments);
     }
@@ -117,22 +126,14 @@ public final class DefaultValidationFailure implements ValidationFailure, Serial
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
         DefaultValidationFailure other = (DefaultValidationFailure) obj;
-        if (!location.equals(other.location))
-            return false;
-        if (!Arrays.equals(messageArguments, other.messageArguments))
-            return false;
-        if (!messageKey.equals(other.messageKey))
-            return false;
-        if (severity != other.severity)
-            return false;
+        if (!location.equals(other.location)) return false;
+        if (!Arrays.equals(messageArguments, other.messageArguments)) return false;
+        if (!messageKey.equals(other.messageKey)) return false;
+        if (severity != other.severity) return false;
         return true;
     }
-
 }

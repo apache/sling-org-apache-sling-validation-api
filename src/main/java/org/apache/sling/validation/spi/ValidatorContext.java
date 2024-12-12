@@ -27,7 +27,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
-
 /**
  * Used as parameter for each call of {@link Validator#validate(Object, ValidatorContext, ValueMap)}
  * Exposes additional information about the context in which the validation was called.
@@ -38,26 +37,30 @@ public interface ValidatorContext {
     /**
      * @return the relative location of the property which should be checked by the validator. Refers to the 'data' parameter of {@link Validator#validate(Object, ValidatorContext, ValueMap)}
      */
-    @NotNull String getLocation();
+    @NotNull
+    String getLocation();
 
     /**
      * @return all properties of the validated resource/valuemap (only used for validations considering multiple properties), never {@code null}.
      */
-    @NotNull ValueMap getValueMap();
+    @NotNull
+    ValueMap getValueMap();
 
     /**
      * @return the resource on which the validation was triggered. {@code null} in case the validation was triggered on a {@link ValueMap} (via {@link ValidationService#validate(ValueMap, org.apache.sling.validation.model.ValidationModel)}).
      */
-    @Nullable Resource getResource();
+    @Nullable
+    Resource getResource();
 
     /**
      * Returns the severity to be issued for validation failures in this context.
      * @return the severity of the validation failure.
      */
     int getSeverity();
-    
+
     /**
      * @return resource bundle which should be able to give out the error message of the {@link Validator} in English.
      */
-    @NotNull ResourceBundle getDefaultResourceBundle();
+    @NotNull
+    ResourceBundle getDefaultResourceBundle();
 }

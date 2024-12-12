@@ -25,7 +25,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
-
 /**
  * Defines the validation rules for a child resource, allowing {@link ValidationModel}s to be applied to {@link
  * org.apache.sling.api.resource.Resource} trees.
@@ -39,18 +38,20 @@ public interface ChildResource {
      *
      * @return the name
      */
-     @NotNull String getName();
-    
+    @NotNull
+    String getName();
+
     /**
      * Returns this resource's name pattern. In case this is not returning {@code null}, this pattern is used for finding the child resources which should be validated.
      *
      * @return the name pattern (if one is set) or {@code null}
      */
-    @Nullable Pattern getNamePattern();
+    @Nullable
+    Pattern getNamePattern();
 
     /**
      * Returns {@code true} if at least one resource matching the name/namePattern is required.
-     * 
+     *
      * @return {@code true} if the resource is required, {@code false} otherwise
      */
     boolean isRequired();
@@ -60,11 +61,13 @@ public interface ChildResource {
      *
      * @return the properties list. Never {@code null}.
      */
-    @NotNull Collection<ResourceProperty> getProperties();
-    
+    @NotNull
+    Collection<ResourceProperty> getProperties();
+
     /**
      * Returns the child resources of this part of the Validation Model
      * @return child resources. Never {@code null}.
      */
-    @NotNull Collection<ChildResource> getChildren();
+    @NotNull
+    Collection<ChildResource> getChildren();
 }

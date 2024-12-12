@@ -31,9 +31,8 @@ public class SlingValidationException extends RuntimeException {
     public SlingValidationException(String message) {
         super(message);
     }
-    
+
     public SlingValidationException(String message, Throwable cause) {
         super(message, cause);
     }
-
 }

@@ -7,7 +7,7 @@
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
  *
- * http://www.apache.org/licenses/LICENSE-2.0
+ *   http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
@@ -24,7 +24,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.osgi.annotation.versioning.ProviderType;
 
-
 /**
  * Defines a specific validator invocation for a given property (without actually exposing a reference to the underlying {@link Validator}).
  */
@@ -32,21 +31,23 @@ import org.osgi.annotation.versioning.ProviderType;
 public interface ValidatorInvocation {
 
     /**
-     * 
+     *
      * @return the validator id of the {@link Validator} which is supposed to be called.
      */
-    @NotNull String getValidatorId();
+    @NotNull
+    String getValidatorId();
 
     /**
-     * 
+     *
      * @return the parameterization of the {@link Validator#validate(Object, org.apache.sling.validation.spi.ValidatorContext, ValueMap)} call (never {@code null}, but might be empty map)
      */
-    @NotNull ValueMap getParameters();
+    @NotNull
+    ValueMap getParameters();
 
     /**
      * @return the severity of validation failures emitted for this usage of the validator (as being set in the model).
      * May be {@code null} in case it was not set on the model.
      */
-    @Nullable Integer getSeverity();
-
+    @Nullable
+    Integer getSeverity();
 }

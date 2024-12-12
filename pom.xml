@@ -32,16 +32,16 @@
     <name>Apache Sling Validation Framework API</name>
     <description>The Apache Sling Validation Framework API</description>
 
-    <properties>
-        <sling.java.version>8</sling.java.version>
-        <project.build.outputTimestamp>2020-01-22T15:10:38Z</project.build.outputTimestamp>
-    </properties>
-
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-validation-api.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-validation-api.git</developerConnection>
         <url>https://github.com/apache/sling-org-apache-sling-validation-api.git</url>
     </scm>
+
+    <properties>
+        <sling.java.version>8</sling.java.version>
+        <project.build.outputTimestamp>2020-01-22T15:10:38Z</project.build.outputTimestamp>
+    </properties>
 
     <dependencies>
         <dependency>
