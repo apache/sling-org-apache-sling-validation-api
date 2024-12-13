@@ -27,7 +27,7 @@
     </parent>
 
     <artifactId>org.apache.sling.validation.api</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.2</version>
 
     <name>Apache Sling Validation Framework API</name>
     <description>The Apache Sling Validation Framework API</description>
@@ -35,13 +35,13 @@
     <scm>
         <connection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-validation-api.git</connection>
         <developerConnection>scm:git:https://gitbox.apache.org/repos/asf/sling-org-apache-sling-validation-api.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>org.apache.sling.validation.api-1.0.2</tag>
         <url>https://github.com/apache/sling-org-apache-sling-validation-api.git</url>
     </scm>
 
     <properties>
         <sling.java.version>8</sling.java.version>
-        <project.build.outputTimestamp>2020-01-22T15:10:38Z</project.build.outputTimestamp>
+        <project.build.outputTimestamp>2024-12-13T10:46:47Z</project.build.outputTimestamp>
     </properties>
 
     <dependencies>
